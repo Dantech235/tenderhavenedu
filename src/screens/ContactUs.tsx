@@ -1,5 +1,8 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const Contact = () => {
   const [dissaled, setDissabled] = useState(false);
@@ -95,58 +98,57 @@ const Contact = () => {
                 <a href="https://htmlcodex.com/contact-form">Download Now</a>.
               </p>
             </div>
-            <div className="row g-5 mb-5">
-              {/* Address, Mail, and Telephone */}
-              <div className="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+            <div className="row g-5 mb-5 ">
+              <OwlCarousel
+                className="owl-theme"
+                loop
+                margin={10}
+                nav
+                responsive={{
+                  0: { items: 1 },
+                  600: { items: 2 },
+                  1000: { items: 3 },
+                }}
+              >
                 <div
-                  className="flex w-auto border border-primary p-3 rounded bg-white"
+                  className="item"
                   style={{
+                    width: "full",
                     display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "14px",
                   }}
                 >
-                  <i className="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
-                  <div>
-                    <h4>Address</h4>
-                    <p className="mb-2 truncate">
-                      3 Adekunle Araba Str, Ire Akari Estate, Isolo
-                    </p>
+                  <div
+                    className="contact-item"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <i className="fas fa-envelope fa-2x text-primary me-4"></i>
+                    <div>
+                      <h4>Mail Us</h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                <div
-                  className="flex  w-auto  border border-primary p-4 rounded bg-white"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "14px",
-                  }}
-                >
-                  <i className="fas fa-envelope fa-2x text-primary me-4"></i>
-                  <div>
-                    <h4>Mail Us</h4>
-                    <p className="mb-2">INFO@TENDERHAVEN.COM</p>
+                <div className="item">
+                  <div
+                    className="contact-item"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <i className="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                    <div>
+                      <h4>Telephone</h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div
-                  className="flex items-center w-auto border border-primary p-4 rounded bg-white"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "14px",
-                  }}
-                >
-                  <i className="fa fa-phone-alt fa-2x text-primary me-4"></i>
-                  <div>
-                    <h4>Telephone</h4>
-                    <p className="mb-2">(+234) 09084989609</p>
-                  </div>
-                </div>
-              </div>
+              </OwlCarousel>
             </div>
 
             {/* Form */}

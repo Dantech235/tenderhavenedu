@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const HompageAbout: React.FC = () => {
-  const handleVideoClick = (videoSrc: string) => {
-    const iframe = document.getElementById("video") as HTMLIFrameElement;
-    iframe.src = videoSrc;
+  const [videoSrc, setVideoSrc] = useState("");
+
+  const handleOpenModal = () => {
+    setVideoSrc("/tendervideo1.mp4"); // Set video source when modal opens
+  };
+
+  const handleCloseModal = () => {
+    setVideoSrc(""); // Remove video source when modal closes
   };
 
   return (
@@ -17,9 +22,7 @@ const HompageAbout: React.FC = () => {
                 className="btn btn-play"
                 data-bs-toggle="modal"
                 data-bs-target="#videoModal"
-                onClick={() =>
-                  handleVideoClick("https://www.youtube.com/embed/eIho2S0ZahI")
-                }
+                onClick={handleOpenModal} // Open modal and set video src
               >
                 <span></span>
               </button>
@@ -73,37 +76,38 @@ const HompageAbout: React.FC = () => {
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* Modal */}
       <div
         className="modal fade"
         id="videoModal"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        onClick={handleCloseModal}
       >
         <div className="modal-dialog">
           <div className="modal-content rounded-0">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Youtube Video
+                Video
               </h5>
               <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onClick={handleCloseModal}
               ></button>
             </div>
             <div className="modal-body">
-              {/* 16:9 aspect ratio */}
               <div className="ratio ratio-16x9">
-                <iframe
-                  className="embed-responsive-item"
-                  src=""
-                  id="video"
-                  allowFullScreen
-                  allow="autoplay"
-                ></iframe>
+                {videoSrc && (
+                  <iframe
+                    src={videoSrc}
+                    className="embed-responsive-item"
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/bootstrap.scss";
-import { FaCopyright } from "react-icons/fa";
+// import { FaCopyright } from "react-icons/fa";
+import { FaCopyright, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { contactInfo, socialIcons } from "../utilities/NavTab";
 
 const Footer = () => {
@@ -44,10 +45,11 @@ const Footer = () => {
                   "Wednesday",
                   "Thursday",
                   "Friday",
-                  "Saturday",
+                  
                 ].map((day) => (
-                  <p key={day}>{day}: 8am to 5pm</p>
+                  <p key={day}>{day}: 5am to 6pm</p>
                 ))}
+                <p className="mb-0">Saturday: 4am to 4pm</p>
                 <p className="mb-0">Sunday: Closed</p>
               </div>
             </div>
@@ -115,38 +117,103 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container-fluid bg-dark py-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 flex text-center text-md-start mb-3 mb-md-0">
-              <span
-                className="text-light flex"
-                style={{
-                  display: "flex",
-                  textAlign: "center",
-                  alignItems: "center",
-                }}
-              >
-                <FaCopyright
-                  className="text-light me-2"
-                  style={{ minHeight: "10px", minWidth: "10px" }}
-                />{" "}
-                tenderhavenedu.com, All rights reserved.
-              </span>
-            </div>
-            <div className="col-md-6 text-center text-md-end text-white">
-              Designed by{" "}
-              <a href="dezeugo8@gmail.com" className="border-bottom">
-                Dantech
-              </a>{" "}
-              & Distributed by{" "}
-              <a href="09068748551" className="border-bottom">
-                Danny
-              </a>
-            </div>
+      <div
+      style={{
+        backgroundColor: "#343a40",
+        padding: "40px 0",
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 16px",
+        }}
+      >
+        {/* Tagline */}
+        <div
+          style={{
+            textAlign: "center",
+            color: "#bbb",
+            fontSize: "14px",
+            marginBottom: "20px",
+          }}
+        >
+          "Empowering Education for a Brighter Future"
+        </div>
+
+        {/* Main Content */}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            textAlign: "center",
+            paddingBottom: "20px",
+            borderBottom: "1px solid #555",
+          }}
+        >
+          {/* Left Section */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flex: "1",
+              minWidth: "300px",
+              color: "#fff",
+              marginBottom: "10px",
+            }}
+          >
+            <FaCopyright style={{ marginRight: "8px", minHeight: "10px", minWidth: "10px" }} />
+            <span>tenderhavenedu.com, All rights reserved.</span>
+          </div>
+
+          {/* Right Section */}
+          <div
+            style={{
+              flex: "1",
+              minWidth: "300px",
+              textAlign: "center",
+              color: "#fff",
+            }}
+          >
+            Designed by{" "}
+            <a
+              href="mailto:dezeugo8@gmail.com"
+              style={{
+                color: "#fff",
+                textDecoration: "underline",
+              }}
+            >
+              TD, S Company
+            </a>
           </div>
         </div>
+
+        {/* Social Media Links */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "20px",
+            marginTop: "20px",
+          }}
+        >
+          <a href="#" style={{ color: "#bbb", fontSize: "20px" }}>
+            <FaFacebook />
+          </a>
+          <a href="#" style={{ color: "#bbb", fontSize: "20px" }}>
+            <FaTwitter />
+          </a>
+          <a href="#" style={{ color: "#bbb", fontSize: "20px" }}>
+            <FaInstagram />
+          </a>
+        </div>
       </div>
+    </div>
     </footer>
   );
 };

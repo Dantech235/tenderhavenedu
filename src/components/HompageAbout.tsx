@@ -4,11 +4,11 @@ const HompageAbout: React.FC = () => {
   const [videoSrc, setVideoSrc] = useState("");
 
   const handleOpenModal = () => {
-    setVideoSrc("/tendervideo1.mp4"); // Set video source when modal opens
+    setVideoSrc("/tendervideo1.mp4"); 
   };
 
   const handleCloseModal = () => {
-    setVideoSrc(""); // Remove video source when modal closes
+    setVideoSrc(""); 
   };
 
   return (
@@ -22,7 +22,7 @@ const HompageAbout: React.FC = () => {
                 className="btn btn-play"
                 data-bs-toggle="modal"
                 data-bs-target="#videoModal"
-                onClick={handleOpenModal} // Open modal and set video src
+                onClick={handleOpenModal} 
               >
                 <span></span>
               </button>
@@ -76,7 +76,7 @@ const HompageAbout: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal */}
+      
       <div
         className="modal fade"
         id="videoModal"

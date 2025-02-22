@@ -130,9 +130,8 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      {/* Navbar End */}
 
-      {/* Modal Search Start */}
+    
       <div
         className="modal fade"
         id="searchModal"
@@ -169,7 +168,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* Modal Search End */}
+
     </div>
   );
 };

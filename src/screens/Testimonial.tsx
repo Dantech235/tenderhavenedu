@@ -8,11 +8,11 @@ import { useState } from "react";
 const testimonialVideos = [
   "/tendervideo1.mp4",
   "/tendervideo2.mp4",
-  "/tendervideo3.mp4",
+  "/tendervideo1.mp4",
 ];
 
 const Testimonial = () => {
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState("");
 
   return (
     <div className="container-fluid testimonial py-5">
@@ -23,12 +23,12 @@ const Testimonial = () => {
           </h4>
           <h1 className="mb-5 display-3">Parents Say About Us</h1>
         </div>
+
         <OwlCarousel
           className="owl-theme"
           loop
           margin={20}
           nav
-        
           autoplayHoverPause
           responsive={{
             0: { items: 1 },
@@ -38,40 +38,49 @@ const Testimonial = () => {
         >
           {testimonialVideos.map((video, index) => (
             <div key={index} className="item">
-              <div className="testimonial-item img-border-radius bg-light border border-primary w-fit p-4">
-                <div className="p-4 position-relative">
-                  <div
-                    className="ratio ratio-16x9"
-                    onClick={() => setSelectedVideo(video)}
-                    style={{ cursor: "pointer" }}
+              <div className="testimonial-item img-border-radius bg-light border border-primary w-100 p-4">
+                <div className="position-relative video-container">
+                  <video
+                    className="w-100 h-100"
+                    controls
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
                   >
-                    <video className="embed-responsive-item w-100" controls>
-                      <source src={video} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
           ))}
         </OwlCarousel>
 
-        
         {selectedVideo && (
           <div className="modal fade show d-block" tabIndex={-1}>
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-lg">
               <div className="modal-content rounded-0">
                 <div className="modal-header">
                   <h5 className="modal-title">Video</h5>
                   <button
                     type="button"
                     className="btn-close"
-                    onClick={() => setSelectedVideo(null)}
+                    onClick={() => setSelectedVideo("")}
                   ></button>
                 </div>
                 <div className="modal-body">
                   <div className="ratio ratio-16x9">
-                    <video className="embed-responsive-item w-100" controls autoPlay>
+                    <video
+                      className="w-100"
+                      controls
+                      autoPlay
+                      style={{
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                        maxHeight: "600px",
+                      }}
+                    >
                       <source src={selectedVideo} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -82,6 +91,31 @@ const Testimonial = () => {
           </div>
         )}
       </div>
+
+    
+      <style>
+        {`
+          @media (min-width: 768px) {
+            .video-container {
+              height: 350px; 
+              width: fit;
+            }
+            .video-container video {
+              max-height: 350px;
+            }
+          }
+          
+          @media (min-width: 1024px) {
+            .video-container {
+              height: fit;
+              width: fit;
+            }
+            .video-container video {
+              max-height: 400px;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

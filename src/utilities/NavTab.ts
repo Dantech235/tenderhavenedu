@@ -42,10 +42,6 @@ export const NavContTab = [
     path: "/ourblog",
   },
   {
-    title: "Our Team",
-    path: "/ourteam",
-  },
-  {
     title: "Testimonial",
     path: "/testimonial",
   },
